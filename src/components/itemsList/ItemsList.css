@@ -1,0 +1,18 @@
+.items-list_article {
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: 18rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+  background-color: tan;
+  width: 70%;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+.item_component:hover {
+  opacity: 0.7;
+}
+@media (max-width: 768px) {
+  .items-list_article {
+    width: 100%;
+  }
+}
