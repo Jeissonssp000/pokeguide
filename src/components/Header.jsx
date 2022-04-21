@@ -2,7 +2,7 @@ import React from "react";
 import { InfoContext } from "../context/InfoContext";
 
 const Header = () => {
-  const { search, setSearch } = InfoContext();
+  const { search, searchHandler } = InfoContext();
   return (
     <header className="header-container">
       <img
@@ -12,7 +12,12 @@ const Header = () => {
       />
       <label>
         Search:
-        <input value={search} name="search" onChange={setSearch} type="text" />
+        <input
+          value={search}
+          name="search"
+          onChange={searchHandler}
+          type="text"
+        />
       </label>
     </header>
   );

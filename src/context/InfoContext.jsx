@@ -1,36 +1,20 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { useList } from "../hooks/useList";
-import { getPokeList } from "../utils/api";
+import { useSearch } from "../hooks/useSearch";
 
 const Context = createContext({});
 
 export const InfoContextProvider = ({ children }) => {
-  const [search, setSearch] = useState("");
-  const [pokeList, setPokeList] = useState("");
-  const [searchList, setSearchList] = useState([]);
-
   const pokemonList = useList("pokemon?limit=10");
-
-  useEffect(() => getPokeList(setPokeList), []);
-
-  useEffect(() => {
-    if (search.length > 0) {
-      const newArray = pokeList.filter((pokemon) =>
-        pokemon.name.includes(search)
-      );
-      setSearchList(newArray);
-    } else {
-      setSearchList([]);
-    }
-  }, [search]);
+  const { empty, search, searchHandler, searchList } = useSearch();
 
   const value = {
+    empty,
     search,
-    setSearch: (event) => setSearch(event.target.value),
+    searchHandler,
     typesList: useList("type"),
     colorsList: useList("pokemon-color"),
     genderList: useList("gender"),
-    pokeList,
     pokemonList: searchList.length ? searchList : pokemonList,
   };
   return <Context.Provider value={value}>{children}</Context.Provider>;

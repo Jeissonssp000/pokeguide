@@ -2,13 +2,17 @@ import React from "react";
 import { InfoContext } from "../context/InfoContext";
 
 const ItemsList = () => {
-  const { pokemonList } = InfoContext();
+  const { empty, pokemonList } = InfoContext();
 
   return (
     <article className="items-list_article">
-      {pokemonList.map((pokemon, index) => (
-        <Item key={index} pokemon={pokemon} />
-      ))}
+      {!empty ? (
+        pokemonList.map((pokemon, index) => (
+          <Item key={index} pokemon={pokemon} />
+        ))
+      ) : (
+        <h1>Vacio</h1>
+      )}
     </article>
   );
 };
