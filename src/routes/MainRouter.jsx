@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../screens/home";
+import Home from "../screens/Home";
 
 const MainRouter = () => {
   return (
