@@ -1,21 +1,32 @@
 import React, { createContext, useContext } from "react";
+import { useFilter } from "../hooks/useFilter";
 import { useList } from "../hooks/useList";
 import { useSearch } from "../hooks/useSearch";
 
 const Context = createContext({});
 
 export const InfoContextProvider = ({ children }) => {
-  const pokemonList = useList("pokemon?limit=10");
-  const { empty, search, searchHandler, searchList } = useSearch();
+  const limitedList = useList("pokemon?limit=10");
+
+  const filter = useFilter();
+  const { filteredList } = filter;
+
+  const search = useSearch(filteredList);
+  const { searchList } = search;
+
+  const pokemonList = searchList.length
+    ? searchList
+    : filteredList.length
+    ? filteredList
+    : limitedList;
 
   const value = {
-    empty,
-    search,
-    searchHandler,
+    ...search,
+    ...filter,
     typesList: useList("type"),
     colorsList: useList("pokemon-color"),
     genderList: useList("gender"),
-    pokemonList: searchList.length ? searchList : pokemonList,
+    pokemonList,
   };
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };

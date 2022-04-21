@@ -2,27 +2,25 @@ import React from "react";
 import { InfoContext } from "../context/InfoContext";
 
 const ItemsList = () => {
-  const { empty, pokemonList } = InfoContext();
+  const { searchEmpty, filterIsEmpty, pokemonList } = InfoContext();
+  const noData = searchEmpty || filterIsEmpty;
 
   return (
     <article className="items-list_article">
-      {!empty ? (
-        pokemonList.map((pokemon, index) => (
-          <Item key={index} pokemon={pokemon} />
-        ))
-      ) : (
+      {noData ? (
         <h1>Vacio</h1>
-      )}
+      ) : pokemonList ? (
+        pokemonList.map((pokemon, index) => (
+          <div
+            key={index}
+            className="item_component"
+            onClick={() => console.log(pokemon)}
+          >
+            <h3>{pokemon.name}</h3>
+          </div>
+        ))
+      ) : null}
     </article>
-  );
-};
-
-const Item = ({ pokemon }) => {
-  const onClick = () => console.log(pokemon);
-  return (
-    <div className="item_component" onClick={onClick}>
-      <h3>{pokemon.name}</h3>
-    </div>
   );
 };
 
