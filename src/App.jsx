@@ -1,11 +1,14 @@
 import { BrowserRouter } from "react-router-dom";
+import { InfoContextProvider } from "./context/InfoContext";
 import MainRouter from "./routes/MainRouter";
 
 function App() {
   return (
-    <BrowserRouter>
-      <MainRouter />
-    </BrowserRouter>
+    <InfoContextProvider>
+      <BrowserRouter>
+        <MainRouter />
+      </BrowserRouter>
+    </InfoContextProvider>
   );
 }
 

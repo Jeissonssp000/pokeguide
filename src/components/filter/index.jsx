@@ -1,11 +1,10 @@
 import "./Filter.css";
-import React, { useEffect, useState } from "react";
-import { getTypes } from "../../utils/api";
+import React, { useState } from "react";
+import { InfoContext } from "../../context/InfoContext";
 
 const FilterSection = () => {
-  const [typesList, setTypesList] = useState([]);
+  const { typesList } = InfoContext();
   const [checked, setChecked] = useState([]);
-  useEffect(() => getTypes(setTypesList), []);
 
   // Add/Remove checked item from list
   const handleCheck = (event) => {
@@ -15,6 +14,7 @@ const FilterSection = () => {
     } else {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
+    console.log(updatedList);
     setChecked(updatedList);
   };
 
@@ -22,7 +22,7 @@ const FilterSection = () => {
     <section className="filter_section">
       {typesList.map((type, index) => (
         <div key={index}>
-          <input value={type.code} type="checkbox" onChange={handleCheck} />
+          <input value={type.url} type="checkbox" onChange={handleCheck} />
           <span>{type.name}</span>
         </div>
       ))}

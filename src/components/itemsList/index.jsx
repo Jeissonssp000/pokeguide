@@ -1,10 +1,9 @@
 import "./ItemsList.css";
-import React, { useEffect, useState } from "react";
-import { getPokemon } from "../../utils/api";
+import React from "react";
+import { InfoContext } from "../../context/InfoContext";
 
 const ItemsList = () => {
-  const [pokemonList, setPokemonList] = useState([]);
-  useEffect(() => getPokemon(setPokemonList), []);
+  const { pokemonList } = InfoContext();
 
   return (
     <article className="items-list_article">
