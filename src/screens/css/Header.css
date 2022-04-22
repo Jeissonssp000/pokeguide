@@ -1,7 +1,33 @@
 .header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+}
+.search {
+  position: relative;
+}
+.input__label {
+  position: absolute;
+  left: 2PX;
+  top: 0;
+  padding: 2px;
+  transform: translate(0, 0);
+  transform-origin: 0 0;
+  transition: transform 120ms ease-in;
+  font-size: small;
+}
+.input__field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 2px solid gray;
+  border-radius: 8PX;
+}
+.input__field:focus + .input__label,
+.input__field:not(:placeholder-shown) + .input__label {
+  background: white;
+  transform: translate(0.25rem, -50%) scale(0.8);
+  color: tomato;
 }

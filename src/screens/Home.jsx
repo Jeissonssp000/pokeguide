@@ -8,10 +8,12 @@ import ItemsList from "../components/itemsList";
 import FilterType from "../components/FilterType";
 import FilterColors from "../components/FilterColors";
 import FilterGender from "../components/FilterGender";
+import Modal from "../components/Modal";
 
 const Home = () => {
   return (
-    <div>
+    <>
+      <Modal />
       <Header />
       <main className="home_main">
         <section className="filter_section">
@@ -23,7 +25,7 @@ const Home = () => {
           <ItemsList />
         </section>
       </main>
-    </div>
+    </>
   );
 };
 

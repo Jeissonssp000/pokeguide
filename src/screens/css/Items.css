@@ -2,6 +2,7 @@
   display: flex;
   width: 70%;
   height: 70vh;
+  border-radius: 10px;
 }
 .items-list_article {
   display: grid;
@@ -13,8 +14,16 @@
   max-height: 70vh;
   overflow-y: scroll;
 }
-.item_component:hover {
+.pokemon-item:hover {
   opacity: 0.7;
+}
+.pokemon-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 @media (max-width: 768px) {
   .items_section {

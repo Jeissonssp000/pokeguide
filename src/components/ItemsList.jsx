@@ -1,5 +1,6 @@
 import React from "react";
 import { InfoContext } from "../context/InfoContext";
+import PokemonItem from "./PokemonItem";
 
 const ItemsList = () => {
   const { searchEmpty, filterIsEmpty, pokemonList } = InfoContext();
@@ -11,13 +12,7 @@ const ItemsList = () => {
         <h1>Vacio</h1>
       ) : pokemonList ? (
         pokemonList.map((pokemon, index) => (
-          <div
-            key={index}
-            className="item_component"
-            onClick={() => console.log(pokemon)}
-          >
-            <h3>{pokemon.name}</h3>
-          </div>
+          <PokemonItem pokemon={pokemon} key={index} />
         ))
       ) : null}
     </article>

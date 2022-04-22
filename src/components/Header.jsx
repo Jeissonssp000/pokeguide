@@ -10,14 +10,16 @@ const Header = () => {
         alt="logo"
         height="40"
       />
-      <label>
-        Search:
+      <label className="search">
         <input
           value={search}
           name="search"
           onChange={searchHandler}
+          className="input__field"
           type="text"
+          placeholder=" "
         />
+        <span className="input__label">Search:</span>
       </label>
     </header>
   );
