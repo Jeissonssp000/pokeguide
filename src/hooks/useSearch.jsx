@@ -8,6 +8,7 @@ export const useSearch = (customList) => {
   const [searchEmpty, setEmpty] = useState(false);
 
   useEffect(() => getPokeList(setPokeList), []);
+  useEffect(() => setSearch(""), [customList]);
 
   useEffect(() => {
     setEmpty(false);
