@@ -1,19 +1,15 @@
 import { useEffect, useState } from "react";
-import { getPokeList } from "../utils/api";
 
-export const useSearch = (customList) => {
-  const [pokeList, setPokeList] = useState([]);
+export const useSearch = (list) => {
   const [searchList, setSearchList] = useState([]);
   const [search, setSearch] = useState("");
   const [searchEmpty, setEmpty] = useState(false);
 
-  useEffect(() => getPokeList(setPokeList), []);
-  useEffect(() => setSearch(""), [customList]);
+  useEffect(() => setSearch(""), [list]);
 
   useEffect(() => {
     setEmpty(false);
     if (search.length > 0) {
-      const list = customList.length ? customList : pokeList;
       const text = search
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")

@@ -9,15 +9,19 @@ const PokemonItem = ({ pokemon }) => {
   const src = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`;
   const style = { textAlign: "center" };
   return (
-    <div className="pokemon-item" onClick={() => showModal(pokemon)}>
-      <img
-        onLoad={() => setLoaded(true)}
-        src={src}
-        alt={pokemon.name}
-        height="80%"
-      />
-      <h3 style={style}>{loaded ? pokemon.name : "Loading..."}</h3>
-    </div>
+    <>
+      {id ? (
+        <div className="pokemon-item" onClick={() => showModal(pokemon)}>
+          <img
+            onLoad={() => setLoaded(true)}
+            src={src}
+            alt={pokemon.name}
+            height="80%"
+          />
+          <h3 style={style}>{loaded ? pokemon.name : "Loading..."}</h3>
+        </div>
+      ) : null}
+    </>
   );
 };
 

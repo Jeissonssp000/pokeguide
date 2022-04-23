@@ -9,8 +9,10 @@ import FilterType from "../components/FilterType";
 import FilterColors from "../components/FilterColors";
 import FilterGender from "../components/FilterGender";
 import Modal from "../components/Modal";
+import { InfoContext } from "../context/InfoContext";
 
 const Home = () => {
+  const { showLoadMore, addMore } = InfoContext();
   return (
     <>
       <Modal />
@@ -23,6 +25,11 @@ const Home = () => {
         </section>
         <section className="items_section">
           <ItemsList />
+          {showLoadMore ? (
+            <button className="Items-add-button" onClick={addMore}>
+              Load more
+            </button>
+          ) : null}
         </section>
       </main>
     </>

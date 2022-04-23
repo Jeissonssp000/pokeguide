@@ -73,10 +73,8 @@ export const getPokemonInfo = async (url, setState) => {
     id,
     img,
     description: info?.data?.flavor_text_entries[0]?.flavor_text,
-    //description
     height,
     weight,
-    //categoria
     //genero
     habitat,
     color,

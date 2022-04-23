@@ -1,7 +1,8 @@
 .items_section {
   display: flex;
+  flex-direction: column;
   width: 70%;
-  height: 70vh;
+  height: 80vh;
   border-radius: 10px;
 }
 .items-list_article {
@@ -24,6 +25,10 @@
   align-items: center;
   border: 1px solid black;
   border-radius: 10px;
+}
+.Items-add-button {
+  margin: 20px auto;
+  max-width: 80px;
 }
 @media (max-width: 768px) {
   .items_section {
