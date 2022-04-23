@@ -4,7 +4,7 @@ import "./css/Header.css";
 import "./css/Items.css";
 import React from "react";
 import Header from "../components/Header";
-import ItemsList from "../components/itemsList";
+import ItemsList from "../components/ItemsList";
 import FilterType from "../components/FilterType";
 import FilterColors from "../components/FilterColors";
 import FilterGender from "../components/FilterGender";

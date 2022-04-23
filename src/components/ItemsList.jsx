@@ -9,7 +9,7 @@ const ItemsList = () => {
   return (
     <article className="items-list_article">
       {noData ? (
-        <h1>Vacio</h1>
+        <h1>No items found...</h1>
       ) : pokemonList ? (
         pokemonList.map((pokemon, index) => (
           <PokemonItem pokemon={pokemon} key={index} />
