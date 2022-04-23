@@ -68,11 +68,11 @@ export const getPokemonInfo = async (url, setState) => {
   species.img = getIdImg(species.url);
   const evolution = [species];
   evolve(evolves_to, evolution);
-  console.log(pokemon.data, info.data);
   const data = {
     name,
     id,
     img,
+    description: info?.data?.flavor_text_entries[0]?.flavor_text,
     //description
     height,
     weight,

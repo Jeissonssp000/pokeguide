@@ -14,7 +14,11 @@ export const useSearch = (customList) => {
     setEmpty(false);
     if (search.length > 0) {
       const list = customList.length ? customList : pokeList;
-      const newArray = list.filter((pokemon) => pokemon.name.includes(search));
+      const text = search
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+      const newArray = list.filter((pokemon) => pokemon.name.includes(text));
       newArray.length ? setSearchList(newArray) : setEmpty(true);
     } else {
       setSearchList([]);

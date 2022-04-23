@@ -10,7 +10,7 @@ const Modal = () => {
       className="modal"
       onClick={hideModal}
     >
-      {info ? <Description info={info} /> : <h1>Loading...</h1>}
+      {info ? <Description info={info} /> : show ? <h1>Loading...</h1> : null}
     </div>
   );
 };
